@@ -1,6 +1,11 @@
 <?php
 
-$user_mail = $_GET["mail"];
+$user_mail = "";
+
+if ($_GET["mail"] != null) {
+
+    $user_mail = $_GET["mail"];
+}
 
 $message = check_email($user_mail);
 
@@ -9,17 +14,22 @@ function check_email($user_mail)
 {
 
     if (str_contains($user_mail, "@")  &&  str_contains($user_mail, ".")) {
+        return [
+            "text" => "prego, puoi entrare!",
+            "status" => "alert-success",
+        ];
+    } elseif (strlen($user_mail) == 0) {
+        return [
 
-        $message = "prego, puoi entrare!";
-    } elseif (mb_strlen($user_mail) == 0) {
-        $message = "prego, inserisci una mail";
+            "text" => "prego, inserisci una mail",
+            "status" => "alert-primary",
+        ];
     } else {
-        $message = "spiacenti, prova con un'altra mail";
-    }
+        return [
 
-
-    return $message;
+            "text" => "spiacenti, prova con un'altra mail",
+            "status" => "alert-danger",
+        ];
+    };
+    
 }
-
-
-?>
