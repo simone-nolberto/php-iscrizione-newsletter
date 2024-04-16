@@ -20,7 +20,6 @@ function check_email($user_mail)
         ];
     } elseif (strlen($user_mail) == 0) {
         return [
-
             "text" => "prego, inserisci una mail",
             "status" => "alert-primary",
         ];
@@ -31,5 +30,4 @@ function check_email($user_mail)
             "status" => "alert-danger",
         ];
     };
-    
 }

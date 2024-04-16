@@ -18,18 +18,16 @@ include __DIR__ . '/functions.php';
 <body>
 
     <div class="container">
-
         <div class="alert <?= $message["status"] ?> alert-dismissible fade show" role="alert">
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             <strong><?= $message["text"] ?></strong>
         </div>
-
-
-        <form action="" method="get">
+        <form action="thankU.php" method="get">
             <input type="text" name="mail" id="">
             <button type="submit">Send</button>
             <!-- <button type="reset">Reset</button> -->
         </form>
+
     </div>
 
 
